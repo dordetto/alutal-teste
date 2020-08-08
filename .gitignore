@@ -1,3 +1,7 @@
+apoio/*
+*.rar
+*.zip
+
 # Logs
 logs
 *.log

@@ -14,12 +14,6 @@ const Menu = () => (
       <li>
         <Link to={`/insert`}>Cadastrar</Link>
       </li>
-      <li>
-        <Link to={`/update`}>Atualizar</Link>
-      </li>
-      <li>
-        <Link to={"/delete"}>Apagar</Link>
-      </li>
     </ul>
   </nav>
 );

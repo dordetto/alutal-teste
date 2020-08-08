@@ -1,39 +1,79 @@
 import React, { Component } from "react";
-import Menu from "../component/Menu";
-import "./styles.css";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import Menu from "../components/Menu";
 
-export default class UpdateProduct extends Component {
+class UpdateProduct extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null,
-      isLoaded: false,
       items: [],
     };
+
+    this.handleChange = this.handleChange.bind(this);
   }
+
+  editToList = () => {
+    axios
+      .put(
+        `http://localhost:3003/product/${this.props.match.params.id}`,
+        this.state
+      )
+      .then(console.log("Produto Atualizado"));
+  };
 
   async componentDidMount() {
-    // GET request using fetch with async/await
-    const response = await fetch("http://localhost:3003/product/1");
+    const response = await fetch(
+      `http://localhost:3003/product/${this.props.match.params.id}`
+    );
     const data = await response.json();
     this.setState({ items: data });
-
-    console.log(data);
-    console.log(this.state);
   }
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   render() {
-    return (<div>
+    return (
+      <div>
         <Menu />
-        <label className="title">Produtos</label>
-             <ul>
-          {this.state.items.map(item => (
-            <li key={item.name}>
-              Nome: {item.name} Preço: {item.price} Código: {item.barcode}
-              <button className="edit">editar</button>
-            </li>
-          ))}
-        </ul>
-    </div>);
+        {this.state.items.map((item) => (
+          <form>
+            <input
+              type="text"
+              placeholder="Last name"
+              name="name"
+              onChange={this.handleChange}
+              defaultValue={item.name}
+            />
+            <input
+              type="number"
+              placeholder=" "
+              name="price"
+              onChange={this.handleChange}
+              defaultValue={item.price}
+            />
+            <input
+              type="number"
+              placeholder=" "
+              name="barcode"
+              onChange={this.handleChange}
+              defaultValue={item.barcode}
+            />
+            <Link to="/list">
+              <button
+                type="submit"
+                variant="outline-dark"
+                onClick={this.editToList}
+              >
+                Salvar
+              </button>
+            </Link>
+          </form>
+        ))}
+      </div>
+    );
   }
 }
+export default UpdateProduct;
