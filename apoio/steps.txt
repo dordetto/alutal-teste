@@ -1,0 +1,13 @@
+host: mysql.vsisolucoes.com.br
+usuario: vsisolucoes74
+senha: V123456
+
+npm init -y
+npm install axios
+npm install -g nodemon
+
+
+yarn create react-app web
+npx create-react-app web
+
+npm i sequelize react-router-dom
