@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Menu from "../components/Menu";
+import "./styles.css";
 
 class UpdateProduct extends Component {
   constructor(props) {
@@ -36,17 +37,22 @@ class UpdateProduct extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <Menu />
+        <h1>Alteração</h1>
         {this.state.items.map((item) => (
           <form>
+            <div className="label-float">
             <input
               type="text"
-              placeholder="Last name"
+              placeholder=" "
               name="name"
               onChange={this.handleChange}
               defaultValue={item.name}
             />
+            <label>Nome</label>
+            </div>
+            <div className="label-float">
             <input
               type="number"
               placeholder=" "
@@ -54,6 +60,9 @@ class UpdateProduct extends Component {
               onChange={this.handleChange}
               defaultValue={item.price}
             />
+            <label>Preço</label>
+            </div>
+            <div className="label-float">
             <input
               type="number"
               placeholder=" "
@@ -61,15 +70,22 @@ class UpdateProduct extends Component {
               onChange={this.handleChange}
               defaultValue={item.barcode}
             />
+            <label>Cód. Barras</label>
+            </div>
+
             <Link to="/list">
               <button
                 type="submit"
                 variant="outline-dark"
                 onClick={this.editToList}
+                className='button-action'
               >
                 Salvar
               </button>
             </Link>
+            <Link to="/list" className="button-action">
+            Cancelar
+          </Link>
           </form>
         ))}
       </div>

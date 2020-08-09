@@ -25,31 +25,33 @@ export default function InsertProduct() {
   }
 
   return (
-    <div>
+    <div className="container">
       <Menu />
-      <div className="form-geral">
-        <h1>Cadastro de Produto</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="label-float">
-            <input name="name" placeholder=" " ref={register} />
-            <label>Nome</label>
-          </div>
+      <h1>Cadastro de Produto</h1>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="label-float">
+          <input name="name" placeholder=" " ref={register} />
+          <label>Nome</label>
+        </div>
 
-          <div className="label-float">
-            <input name="price" placeholder=" " ref={register} />
-            <label>Preço</label>
-          </div>
+        <div className="label-float">
+          <input name="price" placeholder=" " ref={register} />
+          <label>Preço</label>
+        </div>
 
-          <div className="label-float">
-            <input name="barcode" placeholder=" " ref={register} />
-            <label>Código de Barras</label>
-          </div>
-          <div className="action">
-            <button type="submit">Salvar</button>
-            <button onClick={handleBack}>Cancelar</button>
-          </div>
-        </form>
-      </div>
+        <div className="label-float">
+          <input name="barcode" placeholder=" " ref={register} />
+          <label>Código de Barras</label>
+        </div>
+        <div className="buttons">
+          <button type="submit" className="button-action">
+            Salvar
+          </button>
+          <button onClick={handleBack} className="button-action">
+            Cancelar
+          </button>
+        </div>
+      </form>
     </div>
   );
 }

@@ -24,13 +24,20 @@ export default class ListProduct extends Component {
     return (
       <div className="container">
         <Menu />
-        <label className="title">Produtos</label>
-        <ul>
+        <h1>Produtos</h1>
+        <ul id="product-list">
           {this.state.items.map((item) => (
-            <li key={item.name}>
-              Nome: {item.name} Preço: {item.price} Código: {item.barcode}
-              <Link to={`/update/${item.id}`}>Alterar</Link>
-              <Link to={`/delete/${item.id}`}>Excluir</Link>
+            <li className="product-list" key={item.name}>
+              <label className='itens'>Nome: </label>{item.name} <label className='itens'>Preço:</label>{item.price}<label className='itens'>Código:</label>{item.barcode}
+              <div className="buttons">
+                <Link to={`/update/${item.id}`} className="button-action">
+                  Alterar
+                </Link>
+                <Link to={`/delete/${item.id}`} className="button-action">
+                  Excluir
+                </Link>
+              </div>
+              <hr />
             </li>
           ))}
         </ul>

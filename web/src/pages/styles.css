@@ -1,14 +1,24 @@
 body {
   font-family: Archivo, Arial, Helvetica, sans-serif;
+  margin: 0em;
+  width: 100%;
+  height: 100%;
 }
 
-div.titulo {
-  font-size: 24px;
+.container {
+  width: 75%;
+  margin: auto;
+  height: 100%;
+}
+
+label.title {
+  font-size: 32px;
+  font-weight: bold;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  color: #599bb3;
 }
 
 div.product-list {
@@ -17,4 +27,119 @@ div.product-list {
 
 div.label {
   font-family: "Roboto", sans-serif;
+}
+
+label.title {
+  font-size: 18px;
+  padding: 15px;
+}
+
+label.itens {
+  font-weight: bold;
+  padding-left: 15px;
+}
+
+ul#product-list {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+  font-size: 18px;
+}
+
+.product-list ul li {
+  list-style-type: none;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55px;
+  border: none;
+}
+
+.button-action {
+  box-shadow: 0px 10px 14px -7px #276873;
+  background-color: #599bb3;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 13px 50px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #3d768a;
+  margin: 15px;
+}
+.button-action:hover {
+  background-color: #408c99;
+}
+.button-action:active {
+  position: relative;
+  top: 1px;
+}
+
+.label-float {
+  position: relative;
+  padding-top: 13px;
+}
+
+.label-float input,
+textarea {
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  outline: none;
+  min-width: 250px;
+  padding: 15px 10px;
+  font-size: 16px;
+  transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -webkit-appearance: none;
+}
+
+.label-float input:focus,
+textarea:focus {
+  border: 2px solid #3d768a;
+}
+
+.label-float input::placeholder,
+textarea::placeholder {
+  color: transparent;
+}
+
+.label-float label {
+  pointer-events: none;
+  position: absolute;
+  font-size: 20px;
+  top: calc(50% - 8px);
+  left: 5px;
+  transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  background-color: white;
+  padding: 5px;
+  box-sizing: border-box;
+  color: #3d768a;
+  font-weight: bold;
+}
+
+.label-float input:focus:required:invalid,
+textarea:focus:required:invalid {
+  border: 2px solid red;
+}
+
+.label-float input:required:invalid + label:before,
+textarea:required:invalid + label:before {
+  content: "*";
+}
+
+.label-float input:focus + label,
+textarea:focus + label,
+.label-float input:not(:placeholder-shown) + label,
+textarea:not(:placeholder-shown) + label {
+  font-size: 13px;
+  top: 0;
 }
