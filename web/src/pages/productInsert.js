@@ -35,12 +35,12 @@ export default function InsertProduct() {
         </div>
 
         <div className="label-float">
-          <input name="price" placeholder=" " ref={register} />
+          <input name="price" placeholder=" " maxLength='30' ref={register} />
           <label>Preço</label>
         </div>
 
         <div className="label-float">
-          <input name="barcode" placeholder=" " ref={register} />
+          <input name="barcode" placeholder=" " maxLength='11' ref={register} />
           <label>Código de Barras</label>
         </div>
         <div className="buttons">

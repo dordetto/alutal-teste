@@ -15,7 +15,7 @@ const Product = sequelize.define(
     },
     name: {
       allowNull: false,
-      type: Sequelize.STRING(20),
+      type: Sequelize.STRING(30),
       unique: true,
     },
     barcode: {

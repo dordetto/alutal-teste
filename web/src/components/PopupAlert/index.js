@@ -7,7 +7,7 @@ function PopupAlert(mensagem = "Sucesso", tipoAlerta = "success") {
       cancel: false,
       confirm: true,
     },
-    timer: 3000,
+    timer: 5000,
   });
 }
 
